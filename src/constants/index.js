@@ -18,12 +18,9 @@ import {
   altcampus,
   blursocial,
   canvas,
-  carrent,
   forum,
   nyota,
   asma,
-  jobit,
-  tripguide,
   nextjs,
 } from "../assets";
 
@@ -214,6 +211,7 @@ const projects = [
     ],
     image: nyota,
     source_code_link: "https://github.com/ashikraj78/nyotaShopFE",
+    website: "https://nyota-shop-fe.vercel.app/",
   },
   {
     name: "Gate AR Forum",
@@ -225,7 +223,7 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "docusaurus",
         color: "green-text-gradient",
       },
       {
@@ -235,6 +233,7 @@ const projects = [
     ],
     image: forum,
     source_code_link: "https://github.com/ashikraj78/gateARForum",
+    website: "https://gate-arf-orum.vercel.app/",
   },
   {
     name: "Aasmadhar",
@@ -255,7 +254,8 @@ const projects = [
       },
     ],
     image: asma,
-    source_code_link: "https://github.com/ashikraj78/gateARForum",
+    source_code_link: "https://github.com/ashikraj78/assmaadhar",
+    website: "https://assmaadhar.vercel.app/",
   },
 ];
 

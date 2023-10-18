@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
 import {styles} from "../style"
-import {logo, menu, close} from "../assets"
+import {logoPresonal, menu, close} from "../assets"
 import {navLinks} from "../constants"
 
 
@@ -20,21 +20,29 @@ const Navbar = () => {
             window.scrollTo(0,0)
           }} 
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p  className='text-white text-[18px] font-bold cursor-pointer flex'>Ashik &nbsp;<span className='sm:block hidden'>| JS Mastery</span></p>
+          <img src={logoPresonal} alt='logo' className='w-12 h-12 object-contain' />
+          <p  className='text-white text-[18px] font-bold cursor-pointer flex'>Ashik &nbsp;<span className='sm:block hidden'>| Portfolio</span></p>
         </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden sm:flex flex-row  items-center gap-10'>
           {navLinks.map((link)=>(
             <li 
               key={link.id}
               className={`${
                 active === link.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={()=> setActive(link.title)}
+              onClick={()=>{
+                setActive(link.title)
+                console.log("hello there")
+              } }
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+           <li 
+              className="hover:text-white hover:border-white text-secondary font-poppins font-medium cursor-pointer text-[18px] border border-slate-400 px-2 py-1 rounded"
+              >
+                <a href='Ashik_Raj_Resume.pdf' download='Ashik_Raj_Resume.pdf'>Resume</a>
+           </li>
         </ul>
         <div  className='sm:hidden flex flex-1 justify-end items-center'>
           <img 
@@ -59,6 +67,7 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
+             
             </ul>
           </div>
         </div>

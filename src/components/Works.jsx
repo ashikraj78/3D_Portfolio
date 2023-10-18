@@ -9,7 +9,7 @@ import { fadeIn, textVariant } from '../utils/motion'
 
 
 
-const ProjectCard=({index, name , description, tags, image, source_code_link })=>{
+const ProjectCard=({index, name , description, tags, image, source_code_link , website})=>{
 
   return(
     <motion.div variants={fadeIn("up", "spring", index*0.5, 0.75)}>
@@ -21,12 +21,11 @@ const ProjectCard=({index, name , description, tags, image, source_code_link })=
         }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
-        <div className='relative w-full h-[230px]'>
+        <div className='relative w-full h-[230px] cursor-pointer'  onClick={()=> window.open(website, "_blank")}>
           <img 
             src={image} 
             alt={name}
-            className="w-full h-full object-cover rounded-2xl"
-            
+            className="w-full h-full object-cover rounded-2xl "
           />
           <div
             className='absolute inset-0 flex justify-end  m-3 card-img_hover'
@@ -52,15 +51,12 @@ const ProjectCard=({index, name , description, tags, image, source_code_link })=
         </div>
 
       </Tilt>
-    </motion.div>
+     </motion.div>
   )
 }
 
-
-
-
-
 const Works = () => {
+
   return (
    <>
       <motion.div variants={textVariant()}> 
@@ -77,10 +73,20 @@ const Works = () => {
       </div>
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index)=>(
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard key={`${project.name}`} index={index} {...project}  />
         ))}
-
       </div>
+      {/* <div className='text-right mr-4'>
+        <div className='green-pink-gradient inline-block p-[2px] rounded mt-8'>
+          <button 
+            className='bg-black px-2 py-1 object-contain' 
+            onClick={handleToggle}
+          >
+            {showMore ?  "Show More" : "Show Less"} 
+          </button>
+        </div>
+      </div> */}
+      
     </>
   )
 }
