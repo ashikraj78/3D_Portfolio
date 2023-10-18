@@ -216,7 +216,7 @@ const projects = [
   {
     name: "Gate AR Forum",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web-based platform designed for GATE Architecture aspirants, providing comprehensive resources, study materials, and interactive tools for exam preparation.",
     tags: [
       {
         name: "react",
@@ -238,7 +238,7 @@ const projects = [
   {
     name: "Aasmadhar",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Web-based platform where an architectural firm displays its portfolio, allowing users to explore, appreciate, and engage with their innovative designs and projects.",
     tags: [
       {
         name: "html",

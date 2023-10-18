@@ -32,7 +32,6 @@ const Navbar = () => {
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={()=>{
                 setActive(link.title)
-                console.log("hello there")
               } }
             >
               <a href={`#${link.id}`}>{link.title}</a>
