@@ -119,6 +119,7 @@ const experiences = [
   {
     title: "Full Stack Developer",
     company_name: "Alt Campus",
+    company_website: "https://altcampus.com/",
     icon: altcampus,
     iconBg: "#28B463 ",
     date: "Aug 2020 - Jan 2021",
@@ -132,6 +133,7 @@ const experiences = [
   {
     title: "Full Stack Developer",
     company_name: "Blur Social",
+    company_website: "https://github.com/blursocial",
     icon: blursocial,
     iconBg: "#F8F9F9",
     date: "Feb 2021 - Dec 2021",
@@ -146,6 +148,7 @@ const experiences = [
   {
     title: "Full Stack Developer",
     company_name: "Canvas Space",
+    company_website: "https://canvas.space/",
     icon: canvas,
     iconBg: "#D4EFDF",
     date: "Jan 2022 - Aug 2023",

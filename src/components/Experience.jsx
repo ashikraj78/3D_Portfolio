@@ -29,7 +29,7 @@ const ExperienceCard = ({experience})=>{
         <h3 className="text-white text-[24px] font-bold ">
             {experience.title}
         </h3>
-        <p className="text-secondary text-[16px] font-semibold" style={{margin:0}}>{experience.company_name}</p>
+        <a href={experience.company_website} target="_blank" className="text-secondary text-[16px] font-semibold underline  decoration-white underline-offset-4 hover:text-white" style={{margin:0}} rel="noreferrer">{experience.company_name}</a>
       </div>
       <ul className="mt-5 list-disc ml-5 space-y-2">
         {experience.points.map((point, index)=>(
@@ -62,4 +62,6 @@ const Experience = () => {
   )
 }
 
-export default SectionWrapper(Experience, "work") 
+const ExperienceWrap = SectionWrapper(Experience, "work") 
+
+export default ExperienceWrap
