@@ -126,6 +126,11 @@
   transform: translateZ(0);
 }
 
+.mail {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
 @keyframes mulShdSpin {
   0%,
   100% {
