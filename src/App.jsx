@@ -22,7 +22,7 @@ function App() {
           <Contact />
           <StarsCanvas />
         </div>
-        <div className="fixed  bottom-0 left-5  w-full">
+        <div className="md:fixed  bottom-0 left-5  w-full">
         <Footer />
         </div>
       </div>

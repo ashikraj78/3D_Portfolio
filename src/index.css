@@ -131,6 +131,16 @@
   text-orientation: mixed;
 }
 
+.mail:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+@media screen and (max-width: 640px) {
+  .mail {
+    writing-mode: horizontal-tb;
+  }
+}
+
 @keyframes mulShdSpin {
   0%,
   100% {
