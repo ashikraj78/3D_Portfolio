@@ -27,8 +27,10 @@ import shopify from "./company/shopify.png";
 import altcampus from "./company/altcampus.jpg";
 import blursocial from "./company/blursocial.png";
 import canvas from "./company/canvas.svg";
+import concinnity from "./company/concinnity.png";
 import tesla from "./company/tesla.png";
 import nyota from "./nyota.png";
+import airanger from "./airanger.png";
 import forum from "./forum.png";
 import asma from "./asma.png";
 import carrent from "./carrent.png";
@@ -64,9 +66,11 @@ export {
   altcampus,
   blursocial,
   canvas,
+  concinnity,
   tesla,
   carrent,
   nyota,
+  airanger,
   forum,
   asma,
   jobit,

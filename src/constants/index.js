@@ -22,6 +22,8 @@ import {
   nyota,
   asma,
   nextjs,
+  concinnity,
+  airanger,
 } from "../assets";
 
 export const navLinks = [
@@ -160,6 +162,21 @@ const experiences = [
       "Focused on optimizing app performance to deliver a seamless user experience.",
     ],
   },
+  {
+    title: "Full Stack Developer",
+    company_name: "Concinnity Media Technologies",
+    company_website: "https://concinnitymedia.com/",
+    icon: concinnity,
+    iconBg: "#000000",
+    date: "Aug 2023 - Jan 2025",
+    points: [
+      "Spearheaded the development of critical dashboards for the Telangana Ground Water Department, significantly enhancing transparency in water meter management.",
+      "Designed and implemented a comprehensive status tracker for administrators, which enables real-time monitoring of application statuses and streamlines operational workflows.",
+      "Utilized React, Strapi, Zustand, and Ant Design to build scalable and responsive dashboards, ensuring efficient data handling and user experience.",
+      "Collaborated with cross-functional teams to gather requirements and ensure the dashboards met the needs of various stakeholders.",
+      "Conducted user training sessions and provided ongoing support to ensure effective utilization of the dashboards by the department staff.",
+    ],
+  },
 ];
 
 const testimonials = [
@@ -190,6 +207,32 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "AI Ranger",
+    description:
+      "AI-powered platform that analyzes a child’s emotions from photos, helping parents, schools, and doctors track emotional development.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "supabase",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "ai",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: airanger,
+    source_code_link: "https://github.com/AI-Ranger/AI-Ranger-React",
+    website: "https://airanger.app/",
+  },
   {
     name: "Nyota Design",
     description:
