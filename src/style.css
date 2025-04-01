@@ -1,0 +1,163 @@
+/* Add this to your existing CSS file */
+.blog-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content p {
+  margin-bottom: 1rem;
+}
+
+.blog-content pre {
+  background-color: #1d1836;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.blog-content code {
+  font-family: monospace;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content ul li {
+  list-style-type: disc;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+}
+
+/* Blog content styles for white background */
+.blog-content {
+  color: #333;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  color: #050816;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content h1 {
+  font-size: 2.25rem;
+}
+
+.blog-content h2 {
+  font-size: 2rem;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+}
+
+.blog-content h4 {
+  font-size: 1.25rem;
+}
+
+.blog-content p {
+  margin-bottom: 1rem;
+}
+
+.blog-content a {
+  color: #915eff;
+  text-decoration: none;
+}
+
+.blog-content a:hover {
+  text-decoration: underline;
+}
+
+.blog-content pre {
+  background-color: #1d1836;
+  color: #dfd9ff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.blog-content code {
+  font-family: monospace;
+}
+
+.blog-content p code {
+  background-color: #f0f0f0;
+  color: #915eff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content ul li {
+  list-style-type: disc;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid #915eff;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #555;
+}
+
+.blog-content img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.blog-content th {
+  background-color: #f0f0f0;
+}
+
+/* Syntax highlighting adjustments */
+.blog-content .hljs {
+  background: #1d1836;
+  border-radius: 0.5rem;
+}

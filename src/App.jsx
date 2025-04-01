@@ -1,40 +1,34 @@
-import { BrowserRouter } from "react-router-dom";
-// eslint-disable-next-line no-unused-vars
-import {
-  About,
-  Contact,
-  Experience,
-  Feedbacks,
-  Hero,
-  Navbar,
-  Tech,
-  Works,
-  StarsCanvas,
-} from "./components";
-import Footer from "./components/Footer";
+import { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Loading from "./components/Loading";
+
+// Lazy load other components
+const About = lazy(() => import("./components/About"));
+const Experience = lazy(() => import("./components/Experience"));
+const Tech = lazy(() => import("./components/Tech"));
+const Works = lazy(() => import("./components/Works"));
+const Blog = lazy(() => import("./components/Blog"));
+const Contact = lazy(() => import("./components/Contact"));
+// const StarsCanvas = lazy(() => import("./components/StarsCanvas"));
+const Footer = lazy(() => import("./components/Footer"));
+
+// Lazy load pages
+const HomePage = lazy(() => import("./pages/HomePage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
+
 function App() {
   return (
     <BrowserRouter>
-      <div className="reltive z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
-
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-        {/* <Feedbacks /> */}
-
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-        <div className="md:fixed  bottom-0 left-5  w-full">
-          <Footer />
-        </div>
-      </div>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
