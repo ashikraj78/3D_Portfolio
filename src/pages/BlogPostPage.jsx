@@ -42,6 +42,42 @@ const parseFrontMatter = (content) => {
   };
 };
 
+// Custom components for markdown rendering
+const MarkdownComponents = {
+  h1: (props) => <h1 className="text-3xl font-bold my-4" {...props} />,
+  h2: (props) => <h2 className="text-2xl font-bold mt-6 mb-4" {...props} />,
+  h3: (props) => <h3 className="text-xl font-bold mt-5 mb-3" {...props} />,
+  h4: (props) => <h4 className="text-lg font-bold mt-4 mb-2" {...props} />,
+  p: (props) => <p className="mb-4" {...props} />,
+  ul: (props) => <ul className="list-disc ml-6 mb-4" {...props} />,
+  ol: (props) => <ol className="list-decimal ml-6 mb-4" {...props} />,
+  li: (props) => <li className="mb-1" {...props} />,
+  a: (props) => <a className="text-purple-600 hover:underline" {...props} />,
+  blockquote: (props) => (
+    <blockquote
+      className="border-l-4 border-purple-500 pl-4 italic my-4"
+      {...props}
+    />
+  ),
+  code: ({ node, inline, className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || "");
+    return !inline && match ? (
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto my-4">
+        <code className={className} {...props}>
+          {children}
+        </code>
+      </pre>
+    ) : (
+      <code
+        className="bg-gray-100 text-purple-600 px-1 py-0.5 rounded"
+        {...props}
+      >
+        {children}
+      </code>
+    );
+  },
+};
+
 const BlogPostPage = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -150,6 +186,7 @@ const BlogPostPage = () => {
             <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 mb-20">
               <div className="text-gray-800 text-[17px] leading-[30px] blog-content">
                 <ReactMarkdown
+                  components={MarkdownComponents}
                   rehypePlugins={[rehypeHighlight]}
                   remarkPlugins={[remarkGfm]}
                 >
