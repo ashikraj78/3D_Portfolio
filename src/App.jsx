@@ -17,6 +17,7 @@ const Footer = lazy(() => import("./components/Footer"));
 // Lazy load pages
 const HomePage = lazy(() => import("./pages/HomePage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

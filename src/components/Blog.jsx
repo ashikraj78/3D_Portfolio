@@ -1,28 +1,26 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { styles } from "../style";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 
-const BlogCard = ({ title, date, summary, link, index }) => (
+const BlogCard = ({ title, date, summary, slug, index }) => (
   <motion.div
     variants={fadeIn("up", "spring", index * 0.5, 0.75)}
     className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
   >
-    <div className="mt-5">
-      <h3 className="text-white font-bold text-[24px]">{title}</h3>
-      <p className="text-secondary text-[14px] mt-2">{date}</p>
-      <p className="mt-2 text-secondary text-[14px]">{summary}</p>
-      <div className="mt-4 flex justify-end">
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gradient font-medium cursor-pointer"
-        >
-          Read more
-        </a>
+    <Link to={`/blog/${slug}`} className="block">
+      <div className="mt-5">
+        <h3 className="text-white font-bold text-[24px]">{title}</h3>
+        <p className="text-secondary text-[14px] mt-2">{date}</p>
+        <p className="mt-2 text-secondary text-[14px]">{summary}</p>
+        <div className="mt-4 flex justify-end">
+          <span className="text-gradient font-medium cursor-pointer">
+            Read more
+          </span>
+        </div>
       </div>
-    </div>
+    </Link>
   </motion.div>
 );
 
@@ -30,23 +28,11 @@ const Blog = () => {
   // Sample blog posts - replace with your actual data
   const blogPosts = [
     {
-      title: "Getting Started with React",
-      date: "June 15, 2023",
+      title: "React Performance Analysis",
+      date: "August 15, 2023",
       summary:
-        "Learn the basics of React and how to create your first component.",
-      link: "#",
-    },
-    {
-      title: "Advanced Three.js Techniques",
-      date: "July 22, 2023",
-      summary: "Explore advanced 3D rendering techniques using Three.js.",
-      link: "#",
-    },
-    {
-      title: "Optimizing React Performance",
-      date: "August 10, 2023",
-      summary: "Tips and tricks to make your React applications faster.",
-      link: "#",
+        "Learn how to analyze and optimize React application performance.",
+      slug: "react_performance_analysis",
     },
   ];
 
