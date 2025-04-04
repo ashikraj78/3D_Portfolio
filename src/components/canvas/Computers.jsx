@@ -70,7 +70,7 @@ const ComputerImage = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <img
-        src="./computer_static.png"
+        src="https://res.cloudinary.com/delz4didn/image/upload/v1743776565/coding_laptop_e82gil.gif"
         alt="Computer Model"
         className="w-full max-w-md object-contain"
       />
