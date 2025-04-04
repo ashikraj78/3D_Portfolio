@@ -1,7 +1,7 @@
 ---
 title: React Performance Analysis
-date: August 15, 2023
-author: Your Name
+date: April 2, 2025
+author: Ashik Raj
 coverImage: /blog-images/performance.jpg
 ---
 

@@ -29,7 +29,7 @@ const Blog = () => {
   const blogPosts = [
     {
       title: "React Performance Analysis",
-      date: "August 15, 2023",
+      date: "April 2, 2025",
       summary:
         "Learn how to analyze and optimize React application performance.",
       slug: "react_performance_analysis",
