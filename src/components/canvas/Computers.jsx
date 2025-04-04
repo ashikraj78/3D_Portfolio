@@ -14,6 +14,9 @@ const Computers = ({ isMobile }) => {
   const directionRef = useRef(1); // 1 for forward, -1 for backward
 
   useEffect(() => {
+    // Only animate on desktop
+    if (isMobile) return;
+
     const rotationStep = 0.01;
 
     const maxRotation = THREE.MathUtils.degToRad(30);
@@ -37,10 +40,10 @@ const Computers = ({ isMobile }) => {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
 
   return (
-    <mesh ref={meshRef} rotation={[0, rotationAngle, 0]}>
+    <mesh ref={meshRef} rotation={[0, isMobile ? 0 : rotationAngle, 0]}>
       <hemisphereLight intensity={3} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
@@ -62,8 +65,22 @@ const Computers = ({ isMobile }) => {
   );
 };
 
+// Static image component for mobile
+const ComputerImage = () => {
+  return (
+    <div className="w-full h-full flex justify-center items-center">
+      <img
+        src="./computer_static.png"
+        alt="Computer Model"
+        className="w-full max-w-md object-contain"
+      />
+    </div>
+  );
+};
+
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
     setIsMobile(mediaQuery.matches);
@@ -75,22 +92,27 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  // Return static image for mobile
+  if (isMobile) {
+    return <ComputerImage />;
+  }
+
+  // Return 3D model for desktop
   return (
     <Canvas
-      frameloop="demand"
+      frameloop="always"
       shadows={true}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          //  autoRotate
-          //  autoRotateSpeed={0.3}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <Computers isMobile={false} />
       </Suspense>
       <Preload all />
     </Canvas>
