@@ -59,6 +59,13 @@ const MarkdownComponents = {
       {...props}
     />
   ),
+  img: (props) => (
+    <img
+      className="max-w-full h-auto rounded-lg  my-6 mx-auto border-2 border-gray-300"
+      {...props}
+      alt={props.alt || "Blog image"}
+    />
+  ),
   code: ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (

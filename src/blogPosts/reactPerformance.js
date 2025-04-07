@@ -36,6 +36,26 @@ Useful for analyzing component render times and pinpointing performance bottlene
 - Click "Start profiling" to record interactions.
 - Inspect results to find performance issues.
 
+  I ran React Profiler on the NOC Applications dashboard of TG-GWRM to analyze rendering performance. Here’s the snapshot:
+  ![React Profiler in action](https://res.cloudinary.com/delz4didn/image/upload/v1744023158/react-profiler_dsmo3v.png)
+
+  ***Color Code (What It Means):***
+
+  - 🟢 Green → Fast renders (ideal)
+  - 🟡 / 🟠 Yellow/Orange → Slightly slower, but acceptable
+  - 🔴 Red → Slow and needs optimization (none here)
+
+  ***What I Found:***
+  - Most components render in green — very efficient.
+  - Components like Trigger and Tooltip show yellow/orange, but:
+
+  - *The Tooltip is from a third-party library (Ant Design), and a small render cost is expected due to its internal logic like portals and event listeners. It’s not a concern unless overused.*
+
+  - Total render time was just 2.8ms — excellent.
+
+  ✅ The app is performing well. No major issues. Minor improvements (like lazy-loading tooltips or memoizing props) can help at scale, but everything looks good for now.
+
+
 #### 2. Chrome DevTools Performance Tab
 Detailed overview of rendering and scripting performance.
 
@@ -43,6 +63,26 @@ Detailed overview of rendering and scripting performance.
 - Press \`Ctrl+Shift+I\` or \`Cmd+Option+I\` and select Performance.
 - Record interactions with your app.
 - Analyze the recorded data to find performance bottlenecks.
+
+  I used the Performance Tab to analyze the rendering performance of the NOC Applications dashboard. Here’s the snapshot:
+  ![Performance Tab](https://res.cloudinary.com/delz4didn/image/upload/v1744027570/performance_cat1hz.png)  
+
+  **What I Found:**
+  - Scripting: 1,050ms (🔥 main contributor) 
+  - Rendering + Painting: 29ms total (✔️ good)
+  - System + Idle: 1,800ms+ (✔️ not blocking UI)
+
+  **✅What’s Good:**
+  - Rendering & Painting → ~29ms total → Very efficient. UI isn’t heavy or triggering layout thrashing.
+  - LCP (Largest Contentful Paint) → 1.49s → Below the 2.5s threshold → Good for perceived load speed.
+  - CLS (Cumulative Layout Shift) → 0.36 → Acceptable for internal apps → No jarring layout jumps during interaction.
+  - CPU & GPU usage → Smooth and steady → No sudden spikes; keeps performance consistent.
+
+  **⚠️ Room for Improvement**
+  - Scripting: 1,050ms → High JS execution time →
+      - Audit heavy functions (especially on page load or filters)
+      - Consider breaking large state updates into smaller chunks
+      - Check if event listeners or loops are optimized
 
 #### 3. Chrome DevTools Memory Tab
 Detects and analyzes memory leaks.
