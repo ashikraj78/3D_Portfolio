@@ -103,30 +103,31 @@ Provides actionable recommendations for improving web app performance.
 #### 1. Unnecessary Re-renders
 Components rendering excessively due to mismanaged state and props.
 
-**Example Issue:**
+**useMemo** is a React hook that memoizes the result of a function — it only recalculates the value when its dependencies change. In practice, we use useMemo to avoid re-creating objects, arrays, or functions on every render, which helps prevent unnecessary re-renders of components — especially when using React.memo.
 
-\`\`\`jsx
-function Dashboard({ data }) {
-  return (
-    <div>
-      <Chart data={data.chartData} />
-      <List items={data.items} />
-    </div>
-  );
-}
-\`\`\`
+**Example Issue:**
+![Unnecessary Re-renders](https://res.cloudinary.com/delz4didn/image/upload/v1744096482/Screenshot_2025-04-08_at_12.07.21_PM_brcvmw.png)
+
+Rendering count of the Meter component.
+
+![Rendering count of the Meter component](https://res.cloudinary.com/delz4didn/image/upload/v1744096481/Screenshot_2025-04-08_at_12.19.41_PM_hjckuw.png)
+
+
+**Explanation:**
+
+In the Meters screen of the Telangana NOC dashboard, I noticed that components like <WaterConsumptions /> and <Table /> were being re-rendered even when their data hadn’t changed.In the image above, you can see that the profiler shows 28 re-renders, caused by unstable props being passed to components.
+
+This was because I was passing non-memoized props (like columns and onChange) directly into the components — resulting in new object references on every render.
+
+To fix this, I wrapped the components in React.memo and memoized the props: I used useMemo to memoize the props for both <WaterConsumptions /> and <Table /> : By doing this, the props remained stable unless their dependencies changed — allowing React.memo to skip unnecessary re-renders. After Optimization (25 re-renders)
 
 **Optimized Solution:**
 
-\`\`\`jsx
-const Chart = React.memo(({ data }) => {
-  return <ExpensiveChart data={data} />;
-});
+![Optimized Solution](https://res.cloudinary.com/delz4didn/image/upload/v1744096482/Screenshot_2025-04-08_at_12.18.30_PM_ey0pga.png)
 
-const List = React.memo(({ items }) => {
-  return items.map(item => <ListItem key={item.id} item={item} />);
-});
-\`\`\`
+Rendering count of the Meter component after optimization.
+![Rendering count of the Meter component after optimization](https://res.cloudinary.com/delz4didn/image/upload/v1744096481/Screenshot_2025-04-08_at_12.17.00_PM_bj2amv.png)
+
 
 #### 2. Memory Leaks
 Occurs when components fail to clean up subscriptions or intervals.
